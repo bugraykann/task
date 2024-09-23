@@ -1,8 +1,8 @@
 {
-  "flutter": "3.24.3",
+  "flutter": "stable",
   "flavors": {
     "development": "beta",
-    "production": "3.24.3"
+    "production": "stable"
   },
   "updateVscodeSettings": true,
   "updateGitIgnore": true,

@@ -1,20 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:task/core/databases/database.dart';
 
-void main() {
-  runApp(const MainApp());
+import 'presentation/app.dart';
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await _initHive();
+  runApp(const App());
 }
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
-    );
-  }
+Future<void> _initHive() async {
+  await Hive.initFlutter('task');
+  await Database.init();
 }
